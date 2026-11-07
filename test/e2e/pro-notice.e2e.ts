@@ -6,7 +6,7 @@ import type LockfileUpgradeNotesPlugin from '../../src/main';
 // The shared Pro notice must show once, with a Sponsor on GitHub button that opens the Sponsors page with
 // frequency=one-time and metadata_source=<plugin id>. No pair is saved.
 const LEAD = 'Named pairs and project baselines are Pro features.';
-const PITCH = 'Sponsor on GitHub, then sign in from the plugin settings.';
+const PITCH = 'One payment turns on Pro in every NoteMods plugin. Sponsor on GitHub, then sign in from the plugin settings.';
 const SAVE = '.lun-modal [data-lun-action="Save pair (Pro)"]';
 
 interface Shown { text: string; buttons: number }
@@ -54,7 +54,7 @@ describe(`${pluginId} Pro notice`, function () {
 			try { (w.activeWindow.document.querySelector('.notice .pf-pro-notice-sponsor') as HTMLElement).click(); } finally { w.open = original; }
 			return opened;
 		});
-		expect(url).toBe(`https://github.com/sponsors/theluckystrike?frequency=one-time&metadata_source=${pluginId}`);
+		expect(url).toBe(`https://github.com/sponsors/theluckystrike?frequency=one-time&metadata_source=${pluginId}-all`);
 		const pairs = await browser.executeObsidian(({ app }, id) => (app as unknown as { plugins: { plugins: Record<string, LockfileUpgradeNotesPlugin> } }).plugins.plugins[id]!.settings.pairs.length, pluginId);
 		expect(pairs).toBe(0);
 	});
