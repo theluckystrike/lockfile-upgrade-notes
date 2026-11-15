@@ -54,7 +54,7 @@ describe(`${pluginId} Pro notice`, function () {
 			try { (w.activeWindow.document.querySelector('.notice .pf-pro-notice-sponsor') as HTMLElement).click(); } finally { w.open = original; }
 			return opened;
 		});
-		expect(url).toBe(`https://github.com/sponsors/theluckystrike?frequency=one-time&metadata_source=${pluginId}-all`);
+		expect(url).toBe(`https://github.com/sponsors/theluckystrike/sponsorships?tier_id=666162&frequency=one-time&metadata_source=${pluginId}-all`);
 		const pairs = await browser.executeObsidian(({ app }, id) => (app as unknown as { plugins: { plugins: Record<string, LockfileUpgradeNotesPlugin> } }).plugins.plugins[id]!.settings.pairs.length, pluginId);
 		expect(pairs).toBe(0);
 	});

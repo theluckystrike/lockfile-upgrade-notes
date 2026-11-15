@@ -1,7 +1,7 @@
 {
 	"id": "lockfile-upgrade-notes",
 	"name": "Lockfile Upgrade Notes",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"changes": [
 		"The Pro notice of Lockfile Upgrade Notes now says that one payment turns on Pro in every NoteMods plugin."
 	],
